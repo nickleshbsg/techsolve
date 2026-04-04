@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://techsolve-api.onrender.com/api',
-  whatsappNumber: '919876543210'
+  apiUrl: "http://techsolve.runasp.net/api",
+  whatsappNumber: "919876543210",
 };
