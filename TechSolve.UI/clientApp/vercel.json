@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "name": "techsolve-ui",
+  "buildCommand": "npm run build:prod",
+  "outputDirectory": "dist/client-app/browser",
+  "framework": null,
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}

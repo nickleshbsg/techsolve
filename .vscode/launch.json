@@ -1,0 +1,49 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+
+    // ── .NET API ────────────────────────────────────────────────────────────
+    {
+      "name": "▶ Launch API (.NET)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-api",
+      "program": "${workspaceFolder}/TechSolve.API/bin/Debug/net9.0/TechSolve.API.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/TechSolve.API",
+      "stopAtEntry": false,
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "https://localhost:5001;http://localhost:5000"
+      },
+      "sourceFileMap": {
+        "/Views": "${workspaceFolder}/Views"
+      }
+    },
+
+    // ── Angular ─────────────────────────────────────────────────────────────
+    {
+      "name": "▶ Launch Angular (ng serve)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["start"],
+      "cwd": "${workspaceFolder}/TechSolve.UI/clientApp",
+      "console": "integratedTerminal",
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "Local:.*http://localhost:([0-9]+)"
+      }
+    }
+
+  ],
+
+  // ── Compound: start both at once ─────────────────────────────────────────
+  "compounds": [
+    {
+      "name": "▶▶ Full Stack (API + Angular)",
+      "configurations": ["▶ Launch API (.NET)", "▶ Launch Angular (ng serve)"],
+      "stopAll": true
+    }
+  ]
+}

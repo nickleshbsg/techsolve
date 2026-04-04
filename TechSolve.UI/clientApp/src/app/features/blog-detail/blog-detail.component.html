@@ -1,0 +1,62 @@
+@if (loading()) {
+  <div class="loading-wrap"><div class="spinner"></div><p>Loading article...</p></div>
+}
+@if (!loading() && post()) {
+  <article>
+    <!-- Hero -->
+    <section class="article-hero">
+      <div class="orb"></div>
+      <div class="hero-inner">
+        <div class="breadcrumb"><a routerLink="/blog">← Back to Blog</a></div>
+        <div class="cat-chip" [style.background]="catColor[post()!.category] + '22'" [style.color]="catColor[post()!.category] ?? '#1a3ed4'">
+          {{ post()!.category }}
+        </div>
+        <h1 class="article-title">{{ post()!.title }}</h1>
+        <p class="article-excerpt">{{ post()!.excerpt }}</p>
+        <div class="article-meta">
+          <div class="author-chip">
+            <div class="author-avatar">{{ post()!.authorName.slice(0,2).toUpperCase() }}</div>
+            <div>
+              <div class="author-name">{{ post()!.authorName }}</div>
+              <div class="article-date">{{ post()!.publishedAt | date:'MMMM d, yyyy' }} · {{ post()!.readTimeMinutes }} min read</div>
+            </div>
+          </div>
+          <div class="view-count">👁 {{ post()!.viewCount }} views</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Article body -->
+    <section class="section article-body">
+      <div class="article-layout">
+        <div class="article-content" [innerHTML]="post()!.content"></div>
+        <aside class="article-sidebar">
+          <div class="sidebar-cta">
+            <div class="cta-icon">💬</div>
+            <h4>Enjoyed this article?</h4>
+            <p>Our engineers can help you implement these ideas in your own product.</p>
+            <button class="cta-btn" (click)="enquiry.openModal()">Get a Free Consultation</button>
+          </div>
+          <div class="sidebar-tags">
+            <h4>Related Topics</h4>
+            <div class="tags">
+              <span class="tag">{{ post()!.category }}</span>
+              <span class="tag">TechSolve</span>
+              <span class="tag">Engineering</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="article-cta-bar">
+      <h3>Want to work with the engineers behind this article?</h3>
+      <p>Book a free 30-minute call with our senior team.</p>
+      <button class="btn-white" (click)="enquiry.openModal()">Schedule a Call →</button>
+    </section>
+  </article>
+}
+@if (!loading() && !post()) {
+  <div class="not-found"><h2>Article not found</h2><a routerLink="/blog">← Back to Blog</a></div>
+}

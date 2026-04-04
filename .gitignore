@@ -1,0 +1,30 @@
+# .NET
+**/bin/
+**/obj/
+**/*.user
+**/.vs/
+*.suo
+*.swp
+
+# Angular
+**/node_modules/
+**/dist/
+**/.angular/cache/
+
+# SQLite DB (runtime file, not committed)
+*.db
+*.db-shm
+*.db-wal
+
+# Secrets
+**/appsettings.Local.json
+**/*.pfx
+**/*.p12
+
+# Logs
+**/logs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

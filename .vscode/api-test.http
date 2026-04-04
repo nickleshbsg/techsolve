@@ -1,0 +1,72 @@
+### TechSolve API — REST Client test file
+### Install "REST Client" extension, then click "Send Request" above each block
+
+@baseUrl = https://localhost:5001/api
+
+# ── Services ──────────────────────────────────────────────────────────────────
+
+### Get all services
+GET {{baseUrl}}/services
+Accept: application/json
+
+###
+
+### Get service by slug
+GET {{baseUrl}}/services/custom-software-development
+Accept: application/json
+
+# ── Blog ──────────────────────────────────────────────────────────────────────
+
+### Get published blog posts
+GET {{baseUrl}}/blog?page=1&pageSize=9
+Accept: application/json
+
+###
+
+### Get blog post by slug
+GET {{baseUrl}}/blog/angular-19-signals-complete-guide
+Accept: application/json
+
+# ── Enquiry ───────────────────────────────────────────────────────────────────
+
+### Submit enquiry
+POST {{baseUrl}}/enquiry
+Content-Type: application/json
+
+{
+  "fullName": "Rajiv Mehta",
+  "email": "rajiv@example.com",
+  "phone": "+91 98765 43210",
+  "company": "Acme Corp",
+  "serviceSlug": "custom-software-development",
+  "serviceName": "Custom Software Development",
+  "message": "We need a custom ERP system built for our manufacturing unit. Looking for a senior team to handle the full project.",
+  "sourcePageUrl": "http://localhost:4200/services/custom-software-development"
+}
+
+###
+
+### Get enquiry by ticket ID (replace ticket ID after submitting above)
+GET {{baseUrl}}/enquiry/TS-202501-ABC123
+Accept: application/json
+
+# ── WhatsApp Tracking ─────────────────────────────────────────────────────────
+
+### Track WhatsApp click
+POST {{baseUrl}}/whatsapptracking/track
+Content-Type: application/json
+
+{
+  "sessionId": "test-session-001",
+  "pageUrl": "http://localhost:4200/services",
+  "pageTitle": "Our Services",
+  "serviceSlug": "web-application-development",
+  "serviceName": "Web Application Development",
+  "clickSource": "services-page"
+}
+
+###
+
+### Get WhatsApp analytics
+GET {{baseUrl}}/whatsapptracking/analytics?from=2025-01-01&to=2025-12-31
+Accept: application/json

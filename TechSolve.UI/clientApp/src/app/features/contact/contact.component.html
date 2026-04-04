@@ -1,0 +1,290 @@
+<!-- Hero -->
+<section class="contact-hero">
+  <div class="orb"></div>
+  <div class="grid-lines"></div>
+  <div class="hero-inner">
+    <span class="eyebrow">Let's Talk</span>
+    <h1 class="hero-title">
+      Start your project<br />with a <span class="hl">free consultation.</span>
+    </h1>
+    <p class="hero-sub">
+      No sales pitch. Just a real conversation with a senior engineer about your
+      needs and how we can genuinely help.
+    </p>
+  </div>
+</section>
+
+<section class="section contact-body">
+  <div class="contact-grid">
+    <!-- Left: info -->
+    <div class="info-col">
+      <!-- SVG: contact illustration -->
+      <div class="contact-illustration">
+        <svg
+          viewBox="0 0 380 280"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="380" height="280" rx="16" fill="#eef2ff" />
+          <!-- Central envelope / message -->
+          <rect
+            x="80"
+            y="80"
+            width="220"
+            height="140"
+            rx="14"
+            fill="white"
+            stroke="#c7d2fe"
+            stroke-width="2"
+          />
+          <!-- Envelope fold -->
+          <path
+            d="M80 94 L190 160 L300 94"
+            stroke="#1a3ed4"
+            stroke-width="2.5"
+            fill="none"
+            opacity="0.6"
+          />
+          <!-- Lines in body -->
+          <rect x="100" y="175" width="180" height="6" rx="3" fill="#e0e7ff" />
+          <rect x="100" y="188" width="130" height="6" rx="3" fill="#e0e7ff" />
+          <rect x="100" y="201" width="155" height="6" rx="3" fill="#e0e7ff" />
+          <!-- Floating notification -->
+          <rect
+            x="250"
+            y="45"
+            width="110"
+            height="42"
+            rx="10"
+            fill="white"
+            stroke="#bbf7d0"
+            stroke-width="1.5"
+          />
+          <circle cx="266" cy="66" r="8" fill="#16a34a" opacity="0.2" />
+          <text x="262" y="70" font-size="10">✓</text>
+          <rect x="278" y="58" width="70" height="6" rx="3" fill="#bbf7d0" />
+          <rect x="278" y="70" width="50" height="5" rx="2.5" fill="#dcfce7" />
+          <!-- Ping circles (pulse) -->
+          <circle cx="190" cy="50" r="18" fill="#dbeafe" opacity="0.7" />
+          <circle cx="190" cy="50" r="10" fill="#93c5fd" opacity="0.8" />
+          <circle cx="190" cy="50" r="5" fill="#1a3ed4" />
+          <!-- Left badges -->
+          <rect
+            x="20"
+            y="110"
+            width="50"
+            height="50"
+            rx="12"
+            fill="white"
+            stroke="#c7d2fe"
+            stroke-width="1.5"
+          />
+          <text x="34" y="142" font-size="20">📞</text>
+          <rect
+            x="20"
+            y="175"
+            width="50"
+            height="50"
+            rx="12"
+            fill="white"
+            stroke="#c7d2fe"
+            stroke-width="1.5"
+          />
+          <text x="34" y="207" font-size="20">✉️</text>
+          <rect
+            x="310"
+            y="150"
+            width="50"
+            height="50"
+            rx="12"
+            fill="#f0fdf4"
+            stroke="#bbf7d0"
+            stroke-width="1.5"
+          />
+          <text x="324" y="182" font-size="20">💬</text>
+        </svg>
+      </div>
+
+      <div class="info-cards">
+        <a href="tel:+919876543210" class="info-card">
+          <div class="ic-icon">📞</div>
+          <div>
+            <div class="ic-label">Call us directly</div>
+            <div class="ic-value">+91 98765 43210</div>
+            <div class="ic-note">Mon–Fri, 9am–7pm IST</div>
+          </div>
+        </a>
+        <a href="mailto:hello@techsolve.in" class="info-card">
+          <div class="ic-icon">✉️</div>
+          <div>
+            <div class="ic-label">Email us</div>
+            <div class="ic-value">hello&#64;techsolve.in</div>
+            <div class="ic-note">We reply within 24 hours</div>
+          </div>
+        </a>
+        <a href="#" class="info-card green" (click)="openWhatsApp()">
+          <div class="ic-icon">💬</div>
+          <div>
+            <div class="ic-label">WhatsApp direct</div>
+            <div class="ic-value">Typically replies in minutes</div>
+            <div class="ic-note">Fastest way to reach us</div>
+          </div>
+        </a>
+        <div class="info-card offices">
+          <div class="ic-icon">📍</div>
+          <div>
+            <div class="ic-label">Our offices</div>
+            <div class="ic-value">Mumbai · Bangalore · Delhi NCR</div>
+            <div class="ic-note">Also serving clients remotely worldwide</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="form-col">
+      @if (!submitted()) {
+      <div class="form-card">
+        <div class="form-card-header">
+          <h2>Send an Enquiry</h2>
+          <p>A senior consultant will respond within 24 hours.</p>
+        </div>
+
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <div class="f-row">
+            <div class="f-grp">
+              <label>Full Name *</label>
+              <input
+                formControlName="fullName"
+                placeholder="Rajiv Mehta"
+                [class.err]="
+                  form.get('fullName')?.invalid && form.get('fullName')?.touched
+                "
+              />
+              @if (form.get('fullName')?.invalid &&
+              form.get('fullName')?.touched) {
+              <span class="err">Name is required</span>
+              }
+            </div>
+            <div class="f-grp">
+              <label>Email Address *</label>
+              <input
+                type="email"
+                formControlName="email"
+                placeholder="rajiv@company.com"
+                [class.err]="
+                  form.get('email')?.invalid && form.get('email')?.touched
+                "
+              />
+              @if (form.get('email')?.invalid && form.get('email')?.touched) {
+              <span class="err">Valid email required</span>
+              }
+            </div>
+          </div>
+          <div class="f-row">
+            <div class="f-grp">
+              <label>Phone</label>
+              <input
+                type="tel"
+                formControlName="phone"
+                placeholder="+91 98765 43210"
+              />
+            </div>
+            <div class="f-grp">
+              <label>Company</label>
+              <input
+                formControlName="company"
+                placeholder="Your Company Ltd."
+              />
+            </div>
+          </div>
+          <div class="f-grp">
+            <label>Service Required *</label>
+            <select
+              formControlName="serviceName"
+              [class.err]="
+                form.get('serviceName')?.invalid &&
+                form.get('serviceName')?.touched
+              "
+            >
+              <option value="">Select a service...</option>
+              @for (s of services; track s) {
+              <option [value]="s">{{ s }}</option>
+              }
+            </select>
+            @if (form.get('serviceName')?.invalid &&
+            form.get('serviceName')?.touched) {
+            <span class="err">Please select a service</span>
+            }
+          </div>
+          <div class="f-row">
+            <div class="f-grp">
+              <label>Estimated Budget</label>
+              <select formControlName="budget">
+                <option value="">Prefer not to say</option>
+                <option>Under ₹10L</option>
+                <option>₹10L – ₹25L</option>
+                <option>₹25L – ₹1Cr</option>
+                <option>₹1Cr+</option>
+              </select>
+            </div>
+            <div class="f-grp">
+              <label>Ideal Timeline</label>
+              <select formControlName="timeline">
+                <option value="">Flexible</option>
+                <option>ASAP (within 1 month)</option>
+                <option>1–3 months</option>
+                <option>3–6 months</option>
+                <option>6+ months</option>
+              </select>
+            </div>
+          </div>
+          <div class="f-grp">
+            <label>Project Details *</label>
+            <textarea
+              formControlName="message"
+              placeholder="Tell us about your project — what you're trying to build, key requirements, technical constraints, and any specific concerns..."
+              [class.err]="
+                form.get('message')?.invalid && form.get('message')?.touched
+              "
+            >
+            </textarea>
+            @if (form.get('message')?.invalid && form.get('message')?.touched) {
+            <span class="err"
+              >Please describe your project (min 20 characters)</span
+            >
+            }
+          </div>
+
+          <button type="submit" class="submit-btn" [disabled]="submitting()">
+            {{ submitting() ? "Sending..." : "Send Enquiry →" }}
+          </button>
+          <p class="privacy-note">
+            🔒 All information is strictly confidential. NDA available on
+            request.
+          </p>
+        </form>
+      </div>
+      } @else {
+      <div class="form-card success-card">
+        <div class="success-icon">✅</div>
+        <h2>Enquiry Sent!</h2>
+        <p>
+          Thank you <strong>{{ form.value.fullName }}</strong
+          >! A senior consultant will respond within 24 hours.
+        </p>
+        <div class="ticket-box">
+          Ticket ID: <strong>{{ ticketId() }}</strong>
+        </div>
+        <p class="success-note">
+          Check your email at <strong>{{ form.value.email }}</strong> for a
+          confirmation.
+        </p>
+        <button class="reset-btn" (click)="submitted.set(false); form.reset()">
+          Submit another enquiry
+        </button>
+      </div>
+      }
+    </div>
+  </div>
+</section>

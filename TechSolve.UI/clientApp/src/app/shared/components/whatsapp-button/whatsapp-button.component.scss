@@ -1,0 +1,28 @@
+.wa-float {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 9999;
+  display: flex; align-items: center; gap: 0.875rem;
+
+  .tooltip {
+    background: var(--text); color: #fff;
+    padding: 0.5rem 1rem; border-radius: 9px;
+    font-size: 0.8rem; font-weight: 600;
+    white-space: nowrap; opacity: 0;
+    transform: translateX(8px);
+    transition: all 0.22s ease;
+    pointer-events: none;
+  }
+
+  &:hover .tooltip { opacity: 1; transform: translateX(0); }
+
+  button {
+    width: 60px; height: 60px;
+    background: #25D366; border-radius: 50%; border: none;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; flex-shrink: 0;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+    animation: waPulse 2.5s ease infinite;
+    transition: transform 0.2s;
+    &:hover { transform: scale(1.1); }
+    svg { width: 30px; height: 30px; fill: #fff; }
+  }
+}

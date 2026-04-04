@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <SpaRoot>../TechSolve.UI/clientApp/</SpaRoot>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <!-- SPA middleware: UseSpa, AddSpaStaticFiles, UseSpaStaticFiles -->
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="9.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TechSolve.Service\TechSolve.Service.csproj" />
+    <ProjectReference Include="..\TechSolve.DataModel\TechSolve.DataModel.csproj" />
+    <ProjectReference Include="..\TechSolve.Infrastructure\TechSolve.Infrastructure.csproj" />
+    <ProjectReference Include="..\TechSolve.UI\TechSolve.UI.csproj" />
+  </ItemGroup>
+</Project>

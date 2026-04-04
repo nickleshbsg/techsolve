@@ -1,0 +1,45 @@
+<section class="blog-hero">
+  <div class="orb"></div><div class="grid-lines"></div>
+  <div class="hero-inner">
+    <span class="eyebrow">Insights & Engineering</span>
+    <h1 class="hero-title">Ideas from our <span class="hl">engineering team.</span></h1>
+    <p class="hero-sub">Practical deep-dives, architecture guides, and industry perspective from the engineers building production systems every day.</p>
+  </div>
+</section>
+
+<!-- Category filters -->
+<div class="cat-bar reveal">
+  <div class="cat-bar-inner">
+    @for (c of categories; track c.label) {
+      <button class="cat-btn" [class.active]="activeCategory() === c.value" (click)="filterByCategory(c.value)">{{ c.label }}</button>
+    }
+  </div>
+</div>
+
+<section class="section blog-grid-section reveal">
+  @if (posts().length > 0) {
+    <div class="posts-grid">
+      @for (p of posts(); track p.id; let i = $index) {
+        <a [routerLink]="['/blog', p.slug]" class="post-card" [class.featured]="i === 0">
+          <div class="thumb" [innerHTML]="svgFor(p.category)"></div>
+          <div class="body">
+            <div class="cat-tag" [style.color]="catColor[p.category] ?? '#1a3ed4'">{{ p.category }}</div>
+            <h3 class="post-title">{{ p.title }}</h3>
+            <p class="post-excerpt">{{ p.excerpt }}</p>
+            <div class="post-meta">
+              <span>{{ p.authorName }}</span><span>·</span>
+              <span>{{ p.publishedAt | date:'MMM d, yyyy' }}</span><span>·</span>
+              <span>{{ p.readTimeMinutes }} min read</span>
+            </div>
+          </div>
+        </a>
+      }
+    </div>
+  } @else {
+    <div class="empty-state">
+      <div class="empty-icon">📝</div>
+      <h3>No posts yet</h3>
+      <p>Engineering insights coming soon. Check back shortly.</p>
+    </div>
+  }
+</section>

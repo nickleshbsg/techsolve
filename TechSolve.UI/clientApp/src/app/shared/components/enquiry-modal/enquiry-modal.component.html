@@ -1,0 +1,96 @@
+@if (isOpen) {
+  <div class="overlay" (click)="close()">
+    <div class="modal" (click)="$event.stopPropagation()">
+
+      @if (!submitted()) {
+        <div class="modal-header">
+          <div>
+            <h2>Send an Enquiry</h2>
+            <p>We'll respond within 24 hours.</p>
+          </div>
+          <button class="close-btn" (click)="close()">×</button>
+        </div>
+
+        @if (prefilledService) {
+          <div class="prefill-badge">
+            ✦ Enquiring about: {{ prefilledService.name }}
+          </div>
+        }
+
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input formControlName="fullName" placeholder="Rajiv Mehta"
+                [class.error]="form.get('fullName')?.invalid && form.get('fullName')?.touched">
+              @if (form.get('fullName')?.invalid && form.get('fullName')?.touched) {
+                <span class="err-msg">Full name is required</span>
+              }
+            </div>
+            <div class="form-group">
+              <label>Email Address *</label>
+              <input type="email" formControlName="email" placeholder="rajiv@company.com"
+                [class.error]="form.get('email')?.invalid && form.get('email')?.touched">
+              @if (form.get('email')?.invalid && form.get('email')?.touched) {
+                <span class="err-msg">Valid email is required</span>
+              }
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" formControlName="phone" placeholder="+91 98765 43210">
+            </div>
+            <div class="form-group">
+              <label>Company</label>
+              <input formControlName="company" placeholder="Your Company Ltd.">
+            </div>
+          </div>
+
+          @if (!prefilledService) {
+            <div class="form-group">
+              <label>Service of Interest *</label>
+              <select formControlName="serviceName"
+                [class.error]="form.get('serviceName')?.invalid && form.get('serviceName')?.touched">
+                <option value="">Select a service...</option>
+                @for (s of services; track s) {
+                  <option [value]="s">{{ s }}</option>
+                }
+              </select>
+              @if (form.get('serviceName')?.invalid && form.get('serviceName')?.touched) {
+                <span class="err-msg">Please select a service</span>
+              }
+            </div>
+          }
+
+          <div class="form-group">
+            <label>Project Details *</label>
+            <textarea formControlName="message"
+              placeholder="Tell us about your requirements, timeline, and budget..."
+              [class.error]="form.get('message')?.invalid && form.get('message')?.touched">
+            </textarea>
+            @if (form.get('message')?.invalid && form.get('message')?.touched) {
+              <span class="err-msg">Please describe your project (min 20 characters)</span>
+            }
+          </div>
+
+          <button type="submit" class="btn-submit" [disabled]="submitting()">
+            {{ submitting() ? 'Sending...' : 'Send Enquiry →' }}
+          </button>
+          <div class="privacy-note">🔒 Your information is kept strictly confidential</div>
+        </form>
+
+      } @else {
+        <div class="success-state">
+          <div class="icon">✅</div>
+          <h3>Enquiry Sent!</h3>
+          <p>Thank you! A senior consultant will respond to you within 24 hours.</p>
+          <div class="ticket">Ticket ID: {{ ticketId() }}</div>
+          <p>Check your email for a confirmation.</p>
+          <button class="btn btn-primary" (click)="close()">Close</button>
+        </div>
+      }
+
+    </div>
+  </div>
+}

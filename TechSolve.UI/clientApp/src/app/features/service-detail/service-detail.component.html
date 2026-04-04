@@ -1,0 +1,84 @@
+@if (loading()) {
+  <div class="loading-wrap"><div class="spinner"></div><p>Loading service details...</p></div>
+}
+@if (!loading() && service()) {
+  <article>
+    <!-- Hero -->
+    <section class="detail-hero">
+      <div class="orb"></div><div class="grid-lines"></div>
+      <div class="hero-content">
+        <div class="hero-left">
+          <span class="breadcrumb"><a routerLink="/services">Services</a> / {{ service()!.title }}</span>
+          <div class="icon-wrap">{{ service()!.iconEmoji }}</div>
+          <span class="eyebrow">{{ service()!.tagline }}</span>
+          <h1 class="detail-title">{{ service()!.title }}</h1>
+          <p class="detail-sub">{{ service()!.shortDescription }}</p>
+          <div class="hero-actions">
+            <button class="btn-white" (click)="openEnquiry()">Get a Proposal →</button>
+            <button class="btn-ghost" (click)="openWhatsApp()">💬 WhatsApp Us</button>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="illustration" [innerHTML]="getIllustration()"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Long description -->
+    <section class="section desc-section">
+      <div class="desc-grid">
+        <div class="desc-text">
+          <span class="eyebrow-blue">Overview</span>
+          <h2 class="desc-title">What we deliver</h2>
+          <p>{{ service()!.longDescription }}</p>
+        </div>
+        <div class="desc-meta">
+          @if (service()!.techStack?.length) {
+            <div class="meta-card">
+              <h4>Technology Stack</h4>
+              <div class="tech-chips">
+                @for (t of service()!.techStack; track t) {
+                  <span class="tech-chip">{{ t }}</span>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features -->
+    @if (service()!.keyFeatures?.length) {
+      <section class="section features-section">
+        <div style="text-align:center; margin-bottom:3rem">
+          <span class="eyebrow-blue">What's Included</span>
+          <h2 class="desc-title">Key deliverables</h2>
+        </div>
+        <div class="features-grid">
+          @for (f of service()!.keyFeatures; track f; let i = $index) {
+            <div class="feature-card">
+              <div class="feat-num">{{ (i + 1).toString().padStart(2, '0') }}</div>
+              <div class="feat-text">{{ f }}</div>
+            </div>
+          }
+        </div>
+      </section>
+    }
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="orb-cta"></div>
+      <div class="cta-inner">
+        <h2>Ready to get started with<br>{{ service()!.title }}?</h2>
+        <p>Speak with a senior {{ service()!.title }} engineer today. Free consultation, no commitment.</p>
+        <div class="cta-btns">
+          <button class="btn-white-lg" (click)="openEnquiry()">Send an Enquiry →</button>
+          <button class="btn-ghost-lg" (click)="openWhatsApp()">Chat on WhatsApp</button>
+        </div>
+      </div>
+    </section>
+  </article>
+}
+@if (!loading() && !service()) {
+  <div class="not-found"><h2>Service not found</h2><a routerLink="/services">← Back to services</a></div>
+}

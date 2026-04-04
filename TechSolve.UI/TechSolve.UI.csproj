@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <!-- Root of Angular application -->
+    <SpaRoot>clientApp\</SpaRoot>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
+    <!-- Output Angular dist into wwwroot so API can serve it -->
+    <SpaOutputDir>../TechSolve.API/wwwroot</SpaOutputDir>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <!-- Publish: run ng build -\-configuration=production before publish -->
+  <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish"
+          Condition=" '$(Configuration)' == 'Release' ">
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build:prod" />
+    <ItemGroup>
+      <DistFiles Include="$(SpaRoot)dist\**" />
+      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')"
+                             Exclude="@(ResolvedFileToPublish)">
+        <RelativePath>wwwroot\%(DistFiles.RecursiveDir)%(DistFiles.FileName)%(DistFiles.Extension)</RelativePath>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </ResolvedFileToPublish>
+    </ItemGroup>
+  </Target>
+
+  <!-- Ensure node_modules is restored before any build -->
+  <Target Name="EnsureNodeModules" BeforeTargets="Build"
+          Condition=" '$(Configuration)' == 'Debug' AND !Exists('$(SpaRoot)node_modules') ">
+    <Message Importance="high" Text="Restoring npm packages..." />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+  </Target>
+
+</Project>

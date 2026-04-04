@@ -1,0 +1,31 @@
+.blog-hero {
+  background: linear-gradient(148deg, #060d20 0%, #0a1840 35%, #0e2280 100%);
+  padding: 6rem 2.5rem 5rem; position: relative; overflow: hidden;
+  .orb { position: absolute; top: -20%; right: -10%; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(99,132,255,0.1) 0%, transparent 70%); }
+  .grid-lines { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 64px 64px; }
+}
+.hero-inner { position: relative; z-index: 2; max-width: 700px; }
+.eyebrow { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.75rem; }
+.hero-title { font-size: clamp(2.5rem, 4vw, 3.75rem); font-weight: 900; letter-spacing: -0.04em; color: #fff; line-height: 1.1; margin-bottom: 1.5rem; .hl { background: linear-gradient(90deg, #93c5fd, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; } }
+.hero-sub { font-size: 1rem; color: rgba(255,255,255,0.55); line-height: 1.75; font-weight: 300; max-width: 560px; }
+
+.cat-bar { background: var(--bg); border-bottom: 1px solid var(--border); padding: 0 2.5rem; }
+.cat-bar-inner { display: flex; gap: 0.25rem; overflow-x: auto; padding: 0.875rem 0; &::-webkit-scrollbar { display: none; } }
+.cat-btn { padding: 0.5rem 1.25rem; background: transparent; border: 1.5px solid var(--border); border-radius: 50px; font-size: 0.82rem; font-weight: 600; color: var(--muted); cursor: pointer; white-space: nowrap; transition: all 0.2s; &:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-lt); } &.active { background: var(--blue); border-color: var(--blue); color: #fff; } }
+
+.blog-grid-section { background: #fff; }
+.posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.post-card {
+  background: var(--bg); border: 1.5px solid var(--border); border-radius: 16px;
+  overflow: hidden; text-decoration: none; display: block; transition: all 0.25s;
+  &:hover { box-shadow: 0 20px 60px rgba(26,62,212,0.1); border-color: rgba(26,62,212,0.2); transform: translateY(-4px); }
+  .thumb { height: 180px; overflow: hidden; :deep(svg) { width: 100%; height: 100%; } }
+  .body { padding: 1.75rem; }
+  .cat-tag { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 0.625rem; }
+  .post-title { font-size: 1rem; font-weight: 700; color: var(--text); line-height: 1.4; margin-bottom: 0.625rem; letter-spacing: -0.01em; transition: color 0.2s; }
+  &:hover .post-title { color: var(--blue); }
+  .post-excerpt { font-size: 0.85rem; color: var(--muted); line-height: 1.65; font-weight: 300; margin-bottom: 1.25rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .post-meta { font-size: 0.75rem; color: rgba(10,15,30,0.35); display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+  &.featured { grid-column: span 2; .thumb { height: 260px; } .post-title { font-size: 1.3rem; } }
+}
+.empty-state { padding: 5rem; text-align: center; .empty-icon { font-size: 3rem; margin-bottom: 1rem; } h3 { font-size: 1.5rem; font-weight: 800; color: var(--text); margin-bottom: 0.5rem; } p { color: var(--muted); } }

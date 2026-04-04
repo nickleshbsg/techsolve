@@ -1,0 +1,92 @@
+.footer { background: #05091a; color: rgba(255,255,255,0.55); }
+
+.cta-bar {
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  padding: 3rem 2.5rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+
+  &-title { font-size: clamp(1.2rem, 2vw, 1.75rem); font-weight: 800; color: #fff; letter-spacing: -0.03em; }
+  &-sub   { font-size: 0.9rem; color: rgba(255,255,255,0.65); margin-top: 0.3rem; font-weight: 300; }
+  &-btns  { display: flex; gap: 0.875rem; flex-wrap: wrap; }
+
+  .btn-w {
+    padding: 0.8rem 1.875rem; background: #fff; color: var(--blue-dark);
+    border: none; border-radius: 9px; font-size: 0.875rem; font-weight: 800;
+    cursor: pointer; transition: all 0.2s;
+    &:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+  }
+  .btn-ghost {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255,255,255,0.12); border: 1.5px solid rgba(255,255,255,0.22);
+    color: rgba(255,255,255,0.88); border-radius: 9px; font-size: 0.875rem; font-weight: 600;
+    cursor: pointer; transition: all 0.2s;
+    &:hover { background: rgba(255,255,255,0.2); }
+  }
+}
+
+.footer-main {
+  padding: 4.5rem 2.5rem 3rem;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1.4fr; gap: 3rem;
+}
+
+.brand {
+  .logo { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; }
+  .mark {
+    width: 36px; height: 36px;
+    background: linear-gradient(140deg, var(--blue), var(--blue-dark));
+    border-radius: 9px; display: flex; align-items: center; justify-content: center;
+    font-size: 0.9rem; font-weight: 900; color: #fff;
+  }
+  .name { font-size: 1rem; font-weight: 800; color: #fff; letter-spacing: -0.03em; }
+  .tag  { font-size: 0.6rem; color: rgba(255,255,255,0.3); }
+  p { font-size: 0.875rem; line-height: 1.72; max-width: 280px; margin-bottom: 1.75rem; font-weight: 300; }
+
+  .socials { display: flex; gap: 0.5rem; }
+  .social {
+    width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 9px; display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.4); font-size: 0.8rem; font-weight: 700;
+    text-decoration: none; cursor: pointer; background: none; transition: all 0.2s;
+    &:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
+  }
+}
+
+.col {
+  h5 {
+    font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.25); margin-bottom: 1.375rem;
+  }
+  ul { list-style: none; display: flex; flex-direction: column; gap: 0.625rem; }
+  a {
+    color: rgba(255,255,255,0.48); font-size: 0.875rem; font-weight: 300; transition: color 0.2s;
+    &:hover { color: rgba(255,255,255,0.85); }
+  }
+}
+
+.contact-col {
+  h5 { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 1.375rem; }
+  a {
+    display: flex; align-items: center; gap: 0.625rem;
+    color: rgba(255,255,255,0.48); font-size: 0.875rem; font-weight: 300;
+    margin-bottom: 0.75rem; transition: color 0.2s;
+    &:hover { color: rgba(255,255,255,0.85); }
+  }
+  .enquire-btn {
+    display: block; width: 100%; margin-top: 1.25rem; padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    color: #fff; border: none; border-radius: 9px; font-size: 0.85rem; font-weight: 700;
+    cursor: pointer; text-align: center; transition: all 0.2s;
+    box-shadow: 0 4px 16px rgba(26,62,212,0.3);
+    &:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(26,62,212,0.45); }
+  }
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding: 1.5rem 2.5rem;
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+  p { font-size: 0.78rem; color: rgba(255,255,255,0.22); }
+  .legal { display: flex; gap: 1.5rem; }
+  a { font-size: 0.78rem; color: rgba(255,255,255,0.22); transition: color 0.2s; &:hover { color: rgba(255,255,255,0.55); } }
+}

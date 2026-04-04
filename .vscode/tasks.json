@@ -1,0 +1,101 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+
+    // ── Build API ──────────────────────────────────────────────────────────
+    {
+      "label": "build-api",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "build",
+        "${workspaceFolder}/TechSolve.API/TechSolve.API.csproj",
+        "/property:GenerateFullPaths=true",
+        "/consoleloggerparameters:NoSummary"
+      ],
+      "problemMatcher": "$msCompile",
+      "group": "build",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "shared"
+      }
+    },
+
+    // ── Build entire solution ──────────────────────────────────────────────
+    {
+      "label": "build-solution",
+      "command": "dotnet",
+      "type": "process",
+      "args": ["build", "${workspaceFolder}/TechSolve.sln"],
+      "problemMatcher": "$msCompile",
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "reveal": "always", "panel": "shared" }
+    },
+
+    // ── EF: Add Migration ──────────────────────────────────────────────────
+    {
+      "label": "ef: add migration",
+      "type": "shell",
+      "command": "dotnet ef migrations add ${input:migrationName} --project TechSolve.DataModel --startup-project TechSolve.API",
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "shared" }
+    },
+
+    // ── EF: Update Database ────────────────────────────────────────────────
+    {
+      "label": "ef: update database",
+      "type": "shell",
+      "command": "dotnet ef database update --project TechSolve.DataModel --startup-project TechSolve.API",
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "shared" }
+    },
+
+    // ── npm install ────────────────────────────────────────────────────────
+    {
+      "label": "npm: install",
+      "type": "shell",
+      "command": "npm install",
+      "options": { "cwd": "${workspaceFolder}/TechSolve.UI/clientApp" },
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "shared" }
+    },
+
+    // ── ng serve ───────────────────────────────────────────────────────────
+    {
+      "label": "ng: serve",
+      "type": "shell",
+      "command": "npm start",
+      "options": { "cwd": "${workspaceFolder}/TechSolve.UI/clientApp" },
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "angular",
+        "pattern": { "regexp": "^(.*)$", "file": 1 },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Building\\.\\.\\.",
+          "endsPattern": "compiled successfully"
+        }
+      },
+      "presentation": { "reveal": "always", "panel": "dedicated" }
+    },
+
+    // ── ng build production ────────────────────────────────────────────────
+    {
+      "label": "ng: build prod",
+      "type": "shell",
+      "command": "npm run build:prod",
+      "options": { "cwd": "${workspaceFolder}/TechSolve.UI/clientApp" },
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "shared" }
+    }
+  ],
+
+  "inputs": [
+    {
+      "id": "migrationName",
+      "description": "Migration name",
+      "default": "InitialCreate",
+      "type": "promptString"
+    }
+  ]
+}

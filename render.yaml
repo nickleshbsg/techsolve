@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: techsolve-api
+    runtime: dotnet
+    region: singapore
+    plan: free
+    rootDir: TechSolve.API
+    buildCommand: dotnet publish TechSolve.API.csproj -c Release -o ./publish
+    startCommand: dotnet ./publish/TechSolve.API.dll
+    healthCheckPath: /swagger/v1/swagger.json
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ASPNETCORE_URLS
+        value: http://0.0.0.0:10000
+      - key: AllowedOrigins__0
+        value: https://techsolve-ui.vercel.app

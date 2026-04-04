@@ -1,0 +1,658 @@
+<!-- HERO -->
+<section class="hero-wrap">
+  <div class="hero-gradient">
+    <div class="orb-1"></div>
+    <div class="orb-2"></div>
+    <div class="grid-lines"></div>
+
+    <div class="hero-inner">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Currently Accepting New Client Projects — Q2 2026
+      </div>
+      <h1 class="hero-title">
+        We engineer software<br />that <span class="hl">grows with you.</span>
+      </h1>
+      <p class="hero-sub">
+        From product startups to Fortune 500 enterprises — Angular 19, .NET Core
+        9, AI, and cloud-native solutions backed by 12 years of proven delivery.
+      </p>
+      <div class="hero-btns">
+        <button class="btn-cta" (click)="enquiry.openModal()">
+          Get a Free Consultation
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </button>
+        <button class="btn-wa" (click)="openWhatsApp('hero')">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="#25D366">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+            />
+          </svg>
+          WhatsApp Us
+        </button>
+      </div>
+      <div class="tech-row">
+        <span class="label">Stack</span>
+        <div class="chips">
+          @for (chip of ['Angular 19','.NET Core 9','Azure','AWS','AI /
+          ML','Kubernetes']; track chip) {
+          <span class="chip">{{ chip }}</span>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero SVG illustration — code/development visual -->
+    <div class="hero-visual">
+      <svg viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Browser window -->
+        <rect
+          x="20"
+          y="20"
+          width="360"
+          height="250"
+          rx="12"
+          fill="rgba(255,255,255,0.06)"
+          stroke="rgba(255,255,255,0.15)"
+          stroke-width="1.5"
+        />
+        <rect
+          x="20"
+          y="20"
+          width="360"
+          height="40"
+          rx="12"
+          fill="rgba(255,255,255,0.08)"
+        />
+        <rect
+          x="20"
+          y="48"
+          width="360"
+          height="12"
+          fill="rgba(255,255,255,0.08)"
+        />
+        <!-- Traffic lights -->
+        <circle cx="44" cy="40" r="6" fill="#ff5f57" opacity="0.8" />
+        <circle cx="62" cy="40" r="6" fill="#febc2e" opacity="0.8" />
+        <circle cx="80" cy="40" r="6" fill="#28c840" opacity="0.8" />
+        <!-- URL bar -->
+        <rect
+          x="100"
+          y="32"
+          width="220"
+          height="16"
+          rx="8"
+          fill="rgba(255,255,255,0.08)"
+        />
+        <text
+          x="115"
+          y="44"
+          fill="rgba(255,255,255,0.4)"
+          font-size="9"
+          font-family="monospace"
+        >
+          techsolve.in
+        </text>
+        <!-- Code lines -->
+        <rect
+          x="40"
+          y="78"
+          width="80"
+          height="6"
+          rx="3"
+          fill="#818cf8"
+          opacity="0.7"
+        />
+        <rect
+          x="130"
+          y="78"
+          width="40"
+          height="6"
+          rx="3"
+          fill="rgba(255,255,255,0.2)"
+        />
+        <rect
+          x="40"
+          y="96"
+          width="20"
+          height="6"
+          rx="3"
+          fill="#c4b5fd"
+          opacity="0.6"
+        />
+        <rect
+          x="68"
+          y="96"
+          width="100"
+          height="6"
+          rx="3"
+          fill="#93c5fd"
+          opacity="0.7"
+        />
+        <rect
+          x="40"
+          y="114"
+          width="20"
+          height="6"
+          rx="3"
+          fill="#c4b5fd"
+          opacity="0.6"
+        />
+        <rect
+          x="68"
+          y="114"
+          width="60"
+          height="6"
+          rx="3"
+          fill="rgba(255,255,255,0.25)"
+        />
+        <rect
+          x="136"
+          y="114"
+          width="80"
+          height="6"
+          rx="3"
+          fill="#4ade80"
+          opacity="0.6"
+        />
+        <rect
+          x="40"
+          y="132"
+          width="20"
+          height="6"
+          rx="3"
+          fill="#c4b5fd"
+          opacity="0.6"
+        />
+        <rect
+          x="68"
+          y="132"
+          width="120"
+          height="6"
+          rx="3"
+          fill="#fbbf24"
+          opacity="0.6"
+        />
+        <rect
+          x="40"
+          y="150"
+          width="80"
+          height="6"
+          rx="3"
+          fill="#818cf8"
+          opacity="0.7"
+        />
+        <rect
+          x="40"
+          y="168"
+          width="160"
+          height="6"
+          rx="3"
+          fill="rgba(255,255,255,0.15)"
+        />
+        <rect
+          x="40"
+          y="186"
+          width="20"
+          height="6"
+          rx="3"
+          fill="#c4b5fd"
+          opacity="0.6"
+        />
+        <rect
+          x="68"
+          y="186"
+          width="90"
+          height="6"
+          rx="3"
+          fill="#93c5fd"
+          opacity="0.7"
+        />
+        <!-- Right panel - chart -->
+        <rect
+          x="240"
+          y="72"
+          width="120"
+          height="170"
+          rx="8"
+          fill="rgba(255,255,255,0.04)"
+          stroke="rgba(255,255,255,0.1)"
+          stroke-width="1"
+        />
+        <text
+          x="252"
+          y="94"
+          fill="rgba(255,255,255,0.5)"
+          font-size="8"
+          font-family="sans-serif"
+          font-weight="600"
+        >
+          PERFORMANCE
+        </text>
+        <!-- Bar chart -->
+        <rect
+          x="256"
+          y="180"
+          width="14"
+          height="50"
+          rx="3"
+          fill="#1a3ed4"
+          opacity="0.8"
+        />
+        <rect
+          x="276"
+          y="160"
+          width="14"
+          height="70"
+          rx="3"
+          fill="#818cf8"
+          opacity="0.8"
+        />
+        <rect
+          x="296"
+          y="140"
+          width="14"
+          height="90"
+          rx="3"
+          fill="#1a3ed4"
+          opacity="0.9"
+        />
+        <rect
+          x="316"
+          y="120"
+          width="14"
+          height="110"
+          rx="3"
+          fill="#93c5fd"
+          opacity="0.9"
+        />
+        <!-- Trend line -->
+        <polyline
+          points="263,175 283,155 303,135 323,115"
+          stroke="#4ade80"
+          stroke-width="2"
+          fill="none"
+          stroke-linecap="round"
+        />
+        <circle cx="263" cy="175" r="3" fill="#4ade80" />
+        <circle cx="283" cy="155" r="3" fill="#4ade80" />
+        <circle cx="303" cy="135" r="3" fill="#4ade80" />
+        <circle cx="323" cy="115" r="3" fill="#4ade80" />
+        <!-- Floating badge -->
+        <rect
+          x="260"
+          y="100"
+          width="80"
+          height="24"
+          rx="6"
+          fill="rgba(74,222,128,0.15)"
+          stroke="rgba(74,222,128,0.4)"
+          stroke-width="1"
+        />
+        <circle cx="272" cy="112" r="4" fill="#4ade80" />
+        <text
+          x="282"
+          y="116"
+          fill="#4ade80"
+          font-size="8"
+          font-family="sans-serif"
+          font-weight="700"
+        >
+          ↑ 98% uptime
+        </text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stat-cards-wrap">
+    <div class="stat-cards">
+      @for (s of stats; track s.num) {
+      <div class="stat-card">
+        <div class="num">{{ s.num }}</div>
+        <div class="lbl">{{ s.label }}</div>
+        <div class="trend">{{ s.trend }}</div>
+      </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<div class="clients-bar">
+  <span class="lbl">Trusted by</span>
+  <div class="logos">
+    @for (c of ['HDFC Bank','Infosys','Mahindra','Wipro','L&T','Reliance','Tata
+    Group']; track c) {
+    <span class="name">{{ c }}</span>
+    }
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section services-section reveal">
+  <div class="header-row">
+    <div>
+      <span class="eyebrow">What We Do</span>
+      <h2 class="sec-title">End-to-end services,<br />delivered right.</h2>
+    </div>
+    <p class="sec-desc">
+      Strategy, engineering, and delivery discipline — producing software that
+      performs reliably and at scale.
+    </p>
+  </div>
+  <div class="svc-grid">
+    @for (s of services(); track s.id) {
+    <div class="svc-card">
+      <div class="icon">{{ s.iconEmoji }}</div>
+      <div class="title">{{ s.title }}</div>
+      <p class="desc">{{ s.shortDescription }}</p>
+      <div class="footer">
+        <a [routerLink]="['/services', s.slug]" class="more">Learn more →</a>
+        <button class="enq" (click)="enquireService(s)">Enquire Now</button>
+      </div>
+    </div>
+    }
+  </div>
+</section>
+
+<!-- WHY TECHSOLVE -->
+<section class="section why-section reveal">
+  <div class="why-grid">
+    <div class="why-left">
+      <span class="eyebrow eyebrow-dark">Why TechSolve</span>
+      <h2 class="sec-title sec-title-white">
+        We're not just vendors.<br />We're your tech partners.
+      </h2>
+      <p>
+        We embed ourselves in your business goals and build technology that
+        creates measurable outcomes — not just working software, but software
+        that wins.
+      </p>
+      <div class="why-points">
+        @for (pt of [ {icon:'🎯', title:'Senior-only engineers', desc:'Every
+        project staffed exclusively by engineers with 5+ years domain expertise.
+        No juniors filling seats.'}, {icon:'📊', title:'Full transparency,
+        always', desc:'Weekly sprint demos, live dashboards, and direct Slack
+        access to your dedicated team.'}, {icon:'🛡️', title:'Your IP, fully
+        protected', desc:'Strict mutual NDAs from day one. Full IP transfer on
+        final payment, no exceptions.'}, {icon:'🔧', title:'We stay after
+        go-live', desc:'3-month warranty included, plus SLA-backed maintenance
+        from 4h response time.'} ]; track pt.title) {
+        <div class="why-point">
+          <div class="pt-icon">{{ pt.icon }}</div>
+          <div>
+            <div class="pt-title">{{ pt.title }}</div>
+            <div class="pt-desc">{{ pt.desc }}</div>
+          </div>
+        </div>
+        }
+      </div>
+      <div class="why-btns">
+        <button class="btn btn-white" (click)="enquiry.openModal()">
+          Start a Project →
+        </button>
+        <button class="btn btn-ghost" (click)="openWhatsApp('why-section')">
+          Chat on WhatsApp
+        </button>
+      </div>
+    </div>
+    <div class="process-steps">
+      @for (step of [ {num:'01', title:'Discovery & Planning', desc:'Map your
+      business goals, technical landscape and constraints before writing a line
+      of code.'}, {num:'02', title:'Architecture & Design', desc:'Technical
+      blueprint — stack decisions, data models, API contracts and security
+      design.'}, {num:'03', title:'Agile Development', desc:'Bi-weekly sprints
+      with live demos, dedicated QA, and real-time milestone transparency.'},
+      {num:'04', title:'Launch & Ongoing Support', desc:'Rigorous pre-launch
+      testing, smooth go-live, post-launch monitoring and warranty included.'}
+      ]; track step.num) {
+      <div class="process-step">
+        <div class="num">{{ step.num }}</div>
+        <div>
+          <div class="step-title">{{ step.title }}</div>
+          <div class="step-desc">{{ step.desc }}</div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testi-section reveal">
+  <div class="header-row">
+    <div>
+      <span class="eyebrow">Client Stories</span>
+      <h2 class="sec-title">Trusted by teams that<br />demand excellence.</h2>
+    </div>
+    <p class="sec-desc">
+      From fintech platforms to AI-powered logistics — hear what our clients
+      say.
+    </p>
+  </div>
+  <div class="testi-grid">
+    @for (t of testimonials; track t.name) {
+    <div class="testi-card">
+      <div class="stars">
+        <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+      </div>
+      <div class="quote-mark">"</div>
+      <p>{{ t.text }}</p>
+      <div class="author">
+        <div class="avatar" [style.background]="t.color">{{ t.initials }}</div>
+        <div>
+          <div class="name">{{ t.name }}</div>
+          <div class="role">{{ t.role }}</div>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="section blog-section reveal">
+  <div class="header-row">
+    <div>
+      <span class="eyebrow">Insights & News</span>
+      <h2 class="sec-title">Latest from our engineers.</h2>
+    </div>
+    <a routerLink="/blog" class="view-all">View all articles →</a>
+  </div>
+  @if (blogs().length > 0) {
+  <div class="blog-grid">
+    <a [routerLink]="['/blog', blogs()[0].slug]" class="blog-featured">
+      <div
+        class="thumb"
+        [style.background]="'linear-gradient(135deg,#dbeafe,#c7d2fe)'"
+      >
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <rect width="80" height="80" rx="16" fill="rgba(26,62,212,0.15)" />
+          <path
+            d="M20 30h40M20 40h30M20 50h35"
+            stroke="#1a3ed4"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+          <circle cx="60" cy="50" r="12" fill="#1a3ed4" opacity="0.8" />
+          <path
+            d="M55 50l3 3 6-6"
+            stroke="white"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+      <div class="body">
+        <div class="blog-tag">{{ blogs()[0].category }}</div>
+        <div class="blog-title">{{ blogs()[0].title }}</div>
+        <div class="blog-excerpt">{{ blogs()[0].excerpt }}</div>
+        <div class="blog-meta">
+          <span>{{ blogs()[0].publishedAt | date : "MMM yyyy" }}</span
+          ><span>·</span><span>{{ blogs()[0].readTimeMinutes }} min read</span>
+        </div>
+      </div>
+    </a>
+    <div class="blog-stack">
+      @for (b of blogs().slice(1); track b.id) {
+      <a [routerLink]="['/blog', b.slug]" class="blog-small">
+        <div class="icon">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#1a3ed4"
+            stroke-width="2"
+          >
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+            <polyline points="14,2 14,8 20,8" />
+          </svg>
+        </div>
+        <div>
+          <div class="blog-tag">{{ b.category }}</div>
+          <div class="title">{{ b.title }}</div>
+          <div class="meta">
+            <span>{{ b.publishedAt | date : "MMM yyyy" }}</span
+            ><span>·</span><span>{{ b.readTimeMinutes }} min</span>
+          </div>
+        </div>
+      </a>
+      }
+    </div>
+  </div>
+  }
+</section>
+
+<!-- CONSULTATION FORM -->
+<section class="section consult-section reveal" id="consultation">
+  <div class="consult-grid">
+    <div class="consult-left">
+      <span class="eyebrow eyebrow-dark">Get In Touch</span>
+      <h2 class="sec-title sec-title-white">
+        Let's discuss<br />your project.
+      </h2>
+      <p>
+        One of our senior consultants will respond within 24 hours — no sales
+        pitch, just a real conversation about how we can help.
+      </p>
+      <div class="perks">
+        @for (p of ['Free initial consultation — no obligations','Response
+        within 24 hours, guaranteed','Senior engineer from day one','Full NDA
+        available on request','Fixed-price, T&M, or Dedicated Team']; track p) {
+        <div class="perk">
+          <div class="check">✓</div>
+          {{ p }}
+        </div>
+        }
+      </div>
+      <div class="contacts">
+        <a href="tel:+919876543210" class="contact-link"
+          ><div class="ci">📞</div>
+          +91 98765 43210</a
+        >
+        <a href="mailto:hello@techsolve.in" class="contact-link"
+          ><div class="ci">✉️</div>
+          hello&#64;techsolve.in</a
+        >
+        <a
+          href="#"
+          class="contact-link"
+          (click)="openWhatsApp('contact-section')"
+          ><div class="ci">💬</div>
+          WhatsApp — replies in minutes</a
+        >
+        <a href="#" class="contact-link"
+          ><div class="ci">📍</div>
+          Mumbai · Bangalore · Delhi · Remote</a
+        >
+      </div>
+    </div>
+    <div class="form-card">
+      <div class="fc-title">Send an Enquiry</div>
+      <div class="fc-sub">We'll get back within 24 hours.</div>
+      <div class="f-row">
+        <div class="f-grp">
+          <label>Full Name *</label
+          ><input type="text" placeholder="Rajiv Mehta" />
+        </div>
+        <div class="f-grp">
+          <label>Email *</label
+          ><input type="email" placeholder="rajiv@company.com" />
+        </div>
+      </div>
+      <div class="f-row">
+        <div class="f-grp">
+          <label>Phone</label><input type="tel" placeholder="+91 98765 43210" />
+        </div>
+        <div class="f-grp">
+          <label>Company</label
+          ><input type="text" placeholder="Your Company Ltd." />
+        </div>
+      </div>
+      <div class="f-grp">
+        <label>Service of Interest *</label>
+        <select>
+          <option value="">Select a service...</option>
+          @for (s of services(); track s.id) {
+          <option [value]="s.slug">{{ s.title }}</option>
+          }
+        </select>
+      </div>
+      <div class="f-grp">
+        <label>Project Details *</label
+        ><textarea
+          placeholder="Tell us about your requirements, timeline, and budget..."
+        ></textarea>
+      </div>
+      <button class="f-submit" (click)="enquiry.openModal()">
+        Send Enquiry →
+      </button>
+      <div class="privacy">
+        🔒 Your information is kept strictly confidential
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section reveal">
+  <div class="faq-layout">
+    <div class="faq-left">
+      <span class="eyebrow">FAQ</span>
+      <h2 class="sec-title">Questions we get asked most.</h2>
+      <p>
+        Can't find what you're looking for? Our team replies on WhatsApp
+        typically within minutes during business hours.
+      </p>
+      <a class="wa-link" (click)="openWhatsApp('faq')">💬 Ask on WhatsApp</a>
+    </div>
+    <div class="faq-list">
+      @for (faq of faqs; track faq.q; let i = $index) {
+      <div
+        class="faq-item"
+        [class.open]="openFaq() === i"
+        (click)="toggleFaq(i)"
+      >
+        <div class="q">
+          {{ faq.q }}
+          <div class="toggle">+</div>
+        </div>
+        <div class="a">{{ faq.a }}</div>
+      </div>
+      }
+    </div>
+  </div>
+</section>

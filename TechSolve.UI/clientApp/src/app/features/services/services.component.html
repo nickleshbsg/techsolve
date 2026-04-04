@@ -1,0 +1,59 @@
+<!-- Hero -->
+<section class="svc-hero">
+  <div class="orb-1"></div><div class="grid-lines"></div>
+  <div class="hero-inner">
+    <span class="eyebrow">Our Expertise</span>
+    <h1 class="hero-title">Software services built<br>for <span class="hl">real-world scale.</span></h1>
+    <p class="hero-sub">From greenfield startups to enterprise transformation — we deliver with senior engineers, transparent processes, and a commitment to your success beyond go-live.</p>
+    <div class="hero-btns">
+      <button class="btn-cta" (click)="enquiry.openModal()">
+        Get a Free Consultation
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Services grid -->
+<section class="section services-section reveal">
+  <div class="header-row">
+    <div><span class="eyebrow">What We Do</span><h2 class="sec-title">Six core practice areas.<br>One committed team.</h2></div>
+    <p class="sec-desc">Every engagement is staffed by senior specialists — not generalists — with deep experience in their respective domain.</p>
+  </div>
+  <div class="svc-full-grid">
+    @for (s of services(); track s.id) {
+      <div class="svc-full-card">
+        <div class="card-icon">{{ s.iconEmoji }}</div>
+        <h3 class="card-title">{{ s.title }}</h3>
+        <p class="card-tagline">{{ s.tagline }}</p>
+        <p class="card-desc">{{ s.shortDescription }}</p>
+        <div class="card-footer">
+          <a [routerLink]="['/services', s.slug]" class="learn-more">See full details →</a>
+          <button class="enq-btn" (click)="enquireService(s)">Enquire</button>
+        </div>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- Engagement models -->
+<section class="section models-section reveal">
+  <div style="text-align:center; margin-bottom:3.5rem">
+    <span class="eyebrow">Engagement Models</span>
+    <h2 class="sec-title">Choose how we work together.</h2>
+    <p class="sec-desc" style="margin:0 auto">We adapt to your needs — whether you need a fixed scope, ongoing team, or just extra engineering muscle.</p>
+  </div>
+  <div class="models-grid">
+    @for (m of models; track m.name) {
+      <div class="model-card">
+        <div class="model-icon">{{ m.icon }}</div>
+        <h3 class="model-name">{{ m.name }}</h3>
+        <p class="model-desc">{{ m.desc }}</p>
+        <ul class="model-list">
+          @for (f of m.features; track f) { <li>✓ {{ f }}</li> }
+        </ul>
+        <button class="model-cta" (click)="enquiry.openModal()">Discuss this model →</button>
+      </div>
+    }
+  </div>
+</section>

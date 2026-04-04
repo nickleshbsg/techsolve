@@ -1,0 +1,30 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  build-api:
+    name: Build .NET API
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+      - run: dotnet restore TechSolve.sln
+      - run: dotnet build TechSolve.sln --no-restore -c Release
+  build-ui:
+    name: Build Angular UI
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: TechSolve.UI/clientApp
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci --legacy-peer-deps
+      - run: npm run build:prod
