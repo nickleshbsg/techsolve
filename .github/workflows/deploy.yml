@@ -24,10 +24,7 @@ jobs:
 
       # 4. Publish release build
       - name: Publish
-        run: dotnet publish TechSolve.API/TechSolve.API.csproj \
-          -c Release \
-          -o ./publish \
-          --no-restore
+        run: dotnet publish TechSolve.API/TechSolve.API.csproj -c Release -o ./publish  --no-restore
 
       # 5. Deploy to MonsterASP via FTP
       - name: Deploy via FTP
