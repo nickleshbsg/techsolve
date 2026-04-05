@@ -1,35 +1,35 @@
 @if (loading()) {
   <div class="loading-wrap"><div class="spinner"></div><p>Loading article...</p></div>
 }
-@if (!loading() && post()) {
+@if (!loading() && post(); as p) {
   <article>
-    <!-- Hero -->
     <section class="article-hero">
       <div class="orb"></div>
       <div class="hero-inner">
         <div class="breadcrumb"><a routerLink="/blog">← Back to Blog</a></div>
-        <div class="cat-chip" [style.background]="catColor[post()!.category] + '22'" [style.color]="catColor[post()!.category] ?? '#1a3ed4'">
-          {{ post()!.category }}
+        <div class="cat-chip"
+             [style.background]="(catColor[p.category] ?? '#1a3ed4') + '22'"
+             [style.color]="catColor[p.category] ?? '#1a3ed4'">
+          {{ p.category }}
         </div>
-        <h1 class="article-title">{{ post()!.title }}</h1>
-        <p class="article-excerpt">{{ post()!.excerpt }}</p>
+        <h1 class="article-title">{{ p.title }}</h1>
+        <p class="article-excerpt">{{ p.excerpt }}</p>
         <div class="article-meta">
           <div class="author-chip">
-            <div class="author-avatar">{{ post()!.authorName.slice(0,2).toUpperCase() }}</div>
+            <div class="author-avatar">{{ p.authorName.slice(0,2).toUpperCase() }}</div>
             <div>
-              <div class="author-name">{{ post()!.authorName }}</div>
-              <div class="article-date">{{ post()!.publishedAt | date:'MMMM d, yyyy' }} · {{ post()!.readTimeMinutes }} min read</div>
+              <div class="author-name">{{ p.authorName }}</div>
+              <div class="article-date">{{ p.publishedAt | date:'MMMM d, yyyy' }} · {{ p.readTimeMinutes }} min read</div>
             </div>
           </div>
-          <div class="view-count">👁 {{ post()!.viewCount }} views</div>
+          <div class="view-count">👁 {{ p.viewCount }} views</div>
         </div>
       </div>
     </section>
 
-    <!-- Article body -->
     <section class="section article-body">
       <div class="article-layout">
-        <div class="article-content" [innerHTML]="post()!.content"></div>
+        <div class="article-content" [innerHTML]="p.content"></div>
         <aside class="article-sidebar">
           <div class="sidebar-cta">
             <div class="cta-icon">💬</div>
@@ -40,7 +40,7 @@
           <div class="sidebar-tags">
             <h4>Related Topics</h4>
             <div class="tags">
-              <span class="tag">{{ post()!.category }}</span>
+              <span class="tag">{{ p.category }}</span>
               <span class="tag">TechSolve</span>
               <span class="tag">Engineering</span>
             </div>
@@ -49,7 +49,6 @@
       </div>
     </section>
 
-    <!-- Bottom CTA -->
     <section class="article-cta-bar">
       <h3>Want to work with the engineers behind this article?</h3>
       <p>Book a free 30-minute call with our senior team.</p>
