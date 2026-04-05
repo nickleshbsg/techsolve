@@ -2,9 +2,9 @@ name: Deploy Angular to Vercel
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
     paths:
-      - 'TechSolve.UI/**'
+      - "TechSolve.UI/**"
 
 jobs:
   deploy-ui:
@@ -16,16 +16,16 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
-          cache-dependency-path: TechSolve.UI/clientApp/clientApp/package-lock.json
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: TechSolve.UI/clientApp/package-lock.json
 
       - name: Install dependencies
-        working-directory: TechSolve.UI/clientApp/clientApp
+        working-directory: TechSolve.UI/clientApp
         run: npm ci --legacy-peer-deps
 
       - name: Build production
-        working-directory: TechSolve.UI/clientApp/clientApp
+        working-directory: TechSolve.UI/clientApp
         run: npm run build:prod
 
       - name: Deploy to Vercel
@@ -34,5 +34,5 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          working-directory: TechSolve.UI/clientApp/clientApp
-          vercel-args: '--prod'
+          working-directory: TechSolve.UI/clientApp
+          vercel-args: "--prod"
