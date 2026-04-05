@@ -10,31 +10,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout code
       - uses: actions/checkout@v4
 
-      # 2. Setup .NET 9
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: "9.0.x"
 
-      # 3. Restore dependencies
       - name: Restore
         run: dotnet restore TechSolve.sln
 
-      # 4. Publish release build
       - name: Publish
-        run: dotnet publish TechSolve.API/TechSolve.API.csproj -c Release -o ./publish  --no-restore
+        run: dotnet publish TechSolve.API/TechSolve.API.csproj -c Release -o ./publish --no-restore
 
-      # 5. Deploy to MonsterASP via FTP
+      # Verify web.config is in publish output
+      - name: Check publish output
+        run: echo "=== Published files ===" ls -la ./publish/ echo "web.config present:" $(test -f ./publish/web.config && echo YES || echo NO)
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: site61988.siteasp.net
-          username: site61988
-          password: W?a98hG_t@5K
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./publish/
-          server-dir: /
+          # MonsterASP serves from /wwwroot — upload there, NOT to root
+          server-dir: /wwwroot/
           dangerous-clean-slate: false
           exclude: |
             **/.git*
