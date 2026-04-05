@@ -22,7 +22,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: TechSolve.UI/clientApp
-        run: npm ci --legacy-peer-deps
+        run: npm install --legacy-peer-deps
 
       - name: Build production
         working-directory: TechSolve.UI/clientApp
